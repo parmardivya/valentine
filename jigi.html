@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ffe6f0;
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+}
+.card{
+  background:white;
+  padding:30px 40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+button{
+  padding:10px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:25px;
+  margin:10px;
+  cursor:pointer;
+}
+#yes{ background:#ff4d6d; color:white; }
+#no{ background:#ccc; }
+#love{
+  display:none;
+  font-size:28px;
+  color:#ff1a4d;
+  margin-top:20px;
+}
+.heart{
+  position:fixed;
+  color:red;
+  font-size:20px;
+  animation:float 4s linear infinite;
+}
+@keyframes float{
+  0%{bottom:0; opacity:1;}
+  100%{bottom:100vh; opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Jigi Will you be my Valentine? 💖</h2>
+  <button id="yes" onclick="yesClick()">Yes</button>
+  <button id="no">No</button>
+  <div id="love">I love you ❤️❤️❤️</div>
+</div>
+
+<script>
+function yesClick(){
+  document.getElementById("love").style.display = "block";
+  for(let i=0;i<30;i++){
+    let h=document.createElement("div");
+    h.innerHTML="❤️";
+    h.className="heart";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(2+Math.random()*3)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
+  }
+}
+</script>
+
+</body>
+</html>
